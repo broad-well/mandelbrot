@@ -5,9 +5,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <tuple>
-#include <iostream>
 #include <complex>
-#include "../Mandelbrot2/alg.h"
+#include "alg.h"
 
 using complex = std::complex<double>;
 
@@ -91,8 +90,8 @@ static void render(const RectBounds& bounds, sf::Image& image, const unsigned in
 	image.create(kWindowWidth, kWindowHeight, pixel_buffer);
 }
 
-static void redraw(const double zoomFactor, const complex& zoomCenter, sf::Image& image, sf::Texture& texture, const unsigned int iterationCount) {
-	render(kInitialBounds.zoom(zoomFactor, zoomCenter), image, iterationCount);
+static void redraw(const double zoom_factor, const complex& zoom_center, sf::Image& image, sf::Texture& texture, const unsigned int iterationCount) {
+	render(kInitialBounds.zoom(zoom_factor, zoom_center), image, iterationCount);
 	texture.update(image);
 }
 
